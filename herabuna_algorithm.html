@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Herabuna — алгоритм вибору оснастки</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:system-ui,sans-serif;background:#f5f5f0;color:#1a1a1a;padding:1rem}
+h1{font-size:17px;font-weight:600;margin-bottom:.4rem;color:#1a1a1a}
+.intro{font-size:12px;color:#666;margin-bottom:1.2rem}
+.phase{margin-bottom:1.1rem;border:0.5px solid #ddd;border-radius:10px;overflow:hidden;background:#fff}
+.phase-header{display:flex;align-items:center;gap:10px;padding:9px 13px;background:#f0f0ec;border-bottom:0.5px solid #ddd}
+.phase-num{width:24px;height:24px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:600;flex-shrink:0;color:#fff}
+.n1{background:#378ADD}.n2{background:#1D9E75}.n3{background:#BA7517}.n4{background:#E24B4A}.n5{background:#888}.n6{background:#534AB7}
+.phase-title{font-size:13px;font-weight:600;color:#1a1a1a}
+.phase-sub{font-size:11px;color:#777;margin-top:1px}
+.step{padding:9px 13px;border-bottom:0.5px solid #eee;display:grid;grid-template-columns:20px 1fr;gap:9px;align-items:start}
+.step:last-child{border-bottom:none}
+.step-n{font-size:10px;color:#aaa;padding-top:2px;text-align:right}
+.step-q{font-size:13px;font-weight:600;color:#1a1a1a;margin-bottom:4px}
+.step-detail{font-size:12px;color:#555;line-height:1.5}
+.decision{display:flex;flex-wrap:wrap;gap:5px;margin-top:6px}
+.dec{font-size:11px;padding:3px 8px;border-radius:4px;font-weight:500}
+.dec-yes{background:#e8f5e9;color:#2e7d32}
+.dec-no{background:#fce4e4;color:#c62828}
+.dec-mid{background:#fff8e1;color:#f57f17}
+.dec-info{background:#e3f2fd;color:#1565c0}
+.rbox{margin-top:5px;padding:6px 9px;border-radius:6px;background:#f9f9f6;border:0.5px solid #e0e0d8}
+.rbox-name{font-size:12px;font-weight:600;color:#1a1a1a}
+.rbox-why{font-size:11px;color:#666;margin-top:2px}
+.src{font-size:10px;color:#aaa;margin-top:4px}
+.note{padding:8px 13px;font-size:11px;color:#888;background:#f8f8f5;border-top:0.5px solid #e8e8e0}
+table{width:100%;border-collapse:collapse;font-size:11px;table-layout:fixed}
+th{padding:6px 7px;text-align:left;background:#f0f0ec;font-weight:600;font-size:10px;color:#555;border-bottom:0.5px solid #ddd}
+td{padding:5px 7px;border-bottom:0.5px solid #eee;color:#333;vertical-align:top;line-height:1.4}
+tr:last-child td{border-bottom:none}
+.bold{font-weight:600}
+</style>
+</head>
+<body>
+<h1>Алгоритм вибору оснастки Herabuna — Київщина</h1>
+<p class="intro">Виконуй кроки послідовно. Кожен блок звужує вибір до наступного.</p>
+
+<!-- PHASE 1 -->
+<div class="phase">
+<div class="phase-header">
+<div class="phase-num n1">1</div>
+<div><div class="phase-title">Локація — який тип водойми?</div><div class="phase-sub">Перший фільтр — визначає базові обмеження методу</div></div>
+</div>
+
+<div class="step">
+<div class="step-n">1.1</div>
+<div>
+<div class="step-q">Це річка з течією чи стояча вода?</div>
+<div class="step-detail">Herabuna — метод для нерухомої або майже нерухомої води. Вудилище без котушки, снасть фіксована.</div>
+<div class="decision">
+<span class="dec dec-yes">Стояча вода (ставок, озеро, затока) → продовжуй далі</span>
+<span class="dec dec-no">Річка з течією → крок 1.2</span>
+</div>
+<div class="src">📌 allfishingbuy.com 🇬🇧; tytkleva.net 🇬🇧</div>
+</div>
+</div>
+
+<div class="step">
+<div class="step-n">1.2</div>
+<div>
+<div class="step-q">Якщо річка — є затишна зона без течії?</div>
+<div class="step-detail">На Київщині: затоки Дніпра, рукави Ірпіня, стариці Десни, підпруди під мостами. Якщо швидкість течії менше 0.1 м/с — Herabuna можлива.</div>
+<div class="decision">
+<span class="dec dec-yes">Є затишна зона → використовуй як стояку воду</span>
+<span class="dec dec-no">Течія скрізь → Herabuna непридатна</span>
+</div>
+<div class="src">📌 tytkleva.net 🇬🇧 — "sinking line + rod tip in water" для мінімізації дрейфу</div>
+</div>
+</div>
+
+<div class="step">
+<div class="step-n">1.3</div>
+<div>
+<div class="step-q">Яка рослинність на березі?</div>
+<div class="step-detail">Густий очерет / ситник / кущі — ловля через вікно. Відкритий берег — ловля на відкриту воду перед собою.</div>
+<div class="decision">
+<span class="dec dec-yes">Густа рослинність → CHOCHIN у пріоритеті</span>
+<span class="dec dec-mid">Відкритий берег → SOKOZURI або CHUUTSURI</span>
+</div>
+</div>
+</div>
+</div>
+
+<!-- PHASE 2 -->
+<div class="phase">
+<div class="phase-header">
+<div class="phase-num n2">2</div>
+<div><div class="phase-title">Сезон і температура води — де риба?</div><div class="phase-sub">Карась холоднокровний — горизонт визначає температура</div></div>
+</div>
+
+<div class="step">
+<div class="step-n">2.1</div>
+<div>
+<div class="step-q">Яка температура води?</div>
+<div class="step-detail">Виміряй термометром на глибині 20–30 см від поверхні.</div>
+<div class="rbox"><div class="rbox-name">Нижче 4°C — риба майже не їсть</div><div class="rbox-why">→ OMORIBETA на дні, глютен, без руху снасті.</div></div>
+<div class="rbox"><div class="rbox-name">4–10°C — рання весна / пізня осінь (березень, листопад)</div><div class="rbox-why">→ SOKOTSURI: OMORIBETA або OBETA. Глютен на нижньому гачку.</div></div>
+<div class="rbox"><div class="rbox-name">10–18°C — весна / осінь (квітень–травень, вересень–жовтень)</div><div class="rbox-why">→ Найактивніший сезон. Риба на дні або в нижній третині товщі. OBETA, UEBARITONTON. DANGO на обох.</div></div>
+<div class="rbox"><div class="rbox-name">18–24°C — літо (червень–серпень)</div><div class="rbox-why">→ Риба піднімається в товщу. SEICHU або ASADANA. DANGO або порошок.</div></div>
+<div class="rbox"><div class="rbox-name">Вище 24°C — спека</div><div class="rbox-why">→ Риба у верхньому шарі або у тіні рослин. KATTSUKE або CHOCHIN. Легке порошкове тісто.</div></div>
+<div class="src">📌 Marukyu Beginners Guide 🇯🇵/🇬🇧; tyhasegawa.com 🇬🇧</div>
+</div>
+</div>
+
+<div class="step">
+<div class="step-n">2.2</div>
+<div>
+<div class="step-q">Нерест карася? (кінець березня — червень, Київщина)</div>
+<div class="step-detail">Під час нересту риба виходить до берегів на мілководдя.</div>
+<div class="decision">
+<span class="dec dec-yes">Нерест активний → CHOCHIN або KATTSUKE (мілководдя, берег)</span>
+<span class="dec dec-no">Нерест закінчився → риба голодна, повертається на дно → SOKOTSURI</span>
+</div>
+<div class="src">📌 tyhasegawa.com 🇬🇧; Marukyu PDF 🇯🇵/🇬🇧</div>
+</div>
+</div>
+</div>
+
+<!-- PHASE 3 -->
+<div class="phase">
+<div class="phase-header">
+<div class="phase-num n3">3</div>
+<div><div class="phase-title">Погода і тиск — коригування горизонту</div><div class="phase-sub">Карась реагує на зміни тиску та вміст кисню у воді</div></div>
+</div>
+
+<div class="step">
+<div class="step-n">3.1</div>
+<div>
+<div class="step-q">Яка хмарність і тиск сьогодні?</div>
+<div class="rbox"><div class="rbox-name">Стабільний тиск, ясно → нормальна активність за сезоном</div><div class="rbox-why">Застосовуй оснастку з Блоку 2.</div></div>
+<div class="rbox"><div class="rbox-name">Тиск падає, хмарно, перед дощем → знижений кисень, риба притиснута донизу</div><div class="rbox-why">Навіть влітку — переходь на SOKOTSURI або FUKACHU замість SEICHU.</div></div>
+<div class="rbox"><div class="rbox-name">Різке підвищення тиску після дощу → риба активна, піднімається вгору</div><div class="rbox-why">Влітку → ASADANA або KATTSUKE. Весною → UEBARITONTON або OBETA.</div></div>
+<div class="src">📌 allfishingbuy.com 🇬🇧 — "air bladder reacts to pressure changes"</div>
+</div>
+</div>
+
+<div class="step">
+<div class="step-n">3.2</div>
+<div>
+<div class="step-q">Є вітер? Хвиля на воді?</div>
+<div class="decision">
+<span class="dec dec-no">Сильний вітер → OMORIBETA (важке тісто, вантаж тримає на дні)</span>
+<span class="dec dec-mid">Слабкий вітер → OBETA або UEBARITONTON</span>
+<span class="dec dec-yes">Штиль → будь-яка оснастка за Блоком 2</span>
+</div>
+<div class="src">📌 tytkleva.net 🇬🇧 — "sinking line to minimize drift"</div>
+</div>
+</div>
+
+<div class="step">
+<div class="step-n">3.3</div>
+<div>
+<div class="step-q">Час доби?</div>
+<div class="rbox"><div class="rbox-name">Ранок (6:00–9:00) — риба у верхньому горизонті</div><div class="rbox-why">ASADANA або KATTSUKE влітку. OBETA навесні.</div></div>
+<div class="rbox"><div class="rbox-name">День (10:00–17:00, спека) — риба йде в тінь або глибину</div><div class="rbox-why">FUKACHU або SOKOTSURI. Ловля під навислим берегом → CHOCHIN.</div></div>
+<div class="rbox"><div class="rbox-name">Вечір (17:00–20:00) — риба знову піднімається</div><div class="rbox-why">SEICHU або ASADANA влітку. UEBARITONTON навесні.</div></div>
+<div class="src">📌 Ningbo Yongmiao Fishing Guide 🇬🇧 — добова активність карася</div>
+</div>
+</div>
+</div>
+
+<!-- PHASE 4 -->
+<div class="phase">
+<div class="phase-header">
+<div class="phase-num n4">4</div>
+<div><div class="phase-title">Вимірювання глибини і характер дна (TANA TORI)</div><div class="phase-sub">Без точного вимірювання — правильна оснастка неможлива</div></div>
+</div>
+
+<div class="step">
+<div class="step-n">4.1</div>
+<div>
+<div class="step-q">Повісь TANA TORI GOMU і виміряй глибину точно</div>
+<div class="step-detail">Гумовий вантаж на верхній гачок. Виставляй поплавець поки з води стирчить тільки краєчок антени. Постав маркер TONBO на леску.</div>
+<div class="rbox"><div class="rbox-name">Менше 1 м</div><div class="rbox-why">→ CHOCHIN або KATTSUKE.</div></div>
+<div class="rbox"><div class="rbox-name">1–2 м</div><div class="rbox-why">→ CHOCHIN, OBETA, UEBARITONTON, ASADANA, KATTSUKE. Найбільший вибір для берегів Київщини.</div></div>
+<div class="rbox"><div class="rbox-name">2–4 м</div><div class="rbox-why">→ SOKOTSURI повного діапазону, SEICHU, FUKACHU, RYO-DANGO. Затоки Дніпра, Конча-Заспа.</div></div>
+<div class="rbox"><div class="rbox-name">Понад 4.5 м</div><div class="rbox-why">→ Вудилище 4.5 м+. FUKACHU, SOKOTSURI. Відкрита вода Київського водосховища.</div></div>
+<div class="src">📌 Slideshare Parte 2 🇬🇧; Marukyu PDF 🇯🇵/🇬🇧</div>
+</div>
+</div>
+
+<div class="step">
+<div class="step-n">4.2</div>
+<div>
+<div class="step-q">Яке дно? (мул, пісок, трава)</div>
+<div class="step-detail">Опусти TANA TORI GOMU повільно і відчуй опір. На Київщині більшість ставків — замулене дно.</div>
+<div class="rbox"><div class="rbox-name">М'який мул — гачки тонуть у мулі</div><div class="rbox-why">→ UEBARITONTON (верхній гачок ледь торкається) або CHUUTSURI. Уникай OMORIBETA — тісто потоне в мулі.</div></div>
+<div class="rbox"><div class="rbox-name">Щільне дно (пісок, глина, камінь)</div><div class="rbox-why">→ SOKOTSURI повного діапазону. OMORIBETA і OBETA — ефективні.</div></div>
+<div class="rbox"><div class="rbox-name">Водяна рослинність на дні</div><div class="rbox-why">→ UEBARITONTON або CHUUTSURI — тісто над травою. CHOCHIN — якщо рослинність прямо під берегом.</div></div>
+<div class="src">📌 Slideshare Parte 2 🇬🇧 — "measure depth again if hooks don't settle"</div>
+</div>
+</div>
+</div>
+
+<!-- PHASE 5 -->
+<div class="phase">
+<div class="phase-header">
+<div class="phase-num n5">5</div>
+<div><div class="phase-title">Активність риби — фінальне налаштування</div><div class="phase-sub">Визначається за перших 10–15 хвилин ловлі</div></div>
+</div>
+
+<div class="step">
+<div class="step-n">5.1</div>
+<div>
+<div class="step-q">Є поклювки, але риба не засікається?</div>
+<div class="decision">
+<span class="dec dec-yes">Так → зсунь поплавець на 1 см вгору. Повтори до 10 разів (максимум 10 см). Це UEBARITONTON-корекція.</span>
+</div>
+<div class="src">📌 Slideshare Parte 2 🇬🇧 — "slide float 1cm at a time, max 10cm"</div>
+</div>
+</div>
+
+<div class="step">
+<div class="step-n">5.2</div>
+<div>
+<div class="step-q">Немає поклювок взагалі?</div>
+<div class="decision">
+<span class="dec dec-yes">Підніми оснастку на 10–20 см → вищий горизонт CHUUTSURI</span>
+<span class="dec dec-mid">Зміни тісто: DANGO → глютен</span>
+<span class="dec dec-info">Виміряй глибину повторно — дно може бути нерівним</span>
+</div>
+<div class="src">📌 Slideshare Parte 2 🇬🇧</div>
+</div>
+</div>
+
+<div class="step">
+<div class="step-n">5.3</div>
+<div>
+<div class="step-q">Ставок перерибалений або риба дуже пасивна?</div>
+<div class="decision">
+<span class="dec dec-yes">Так → KATASURASHI + глютен на обох гачках</span>
+<span class="dec dec-mid">Або → SETZURI: порошок верхній, HIGETORO нижній</span>
+</div>
+<div class="src">📌 Marukyu PDF 🇯🇵/🇬🇧 — "gluten effective when fish not very active"</div>
+</div>
+</div>
+</div>
+
+<!-- PHASE 6 summary table -->
+<div class="phase">
+<div class="phase-header">
+<div class="phase-num n6">→</div>
+<div><div class="phase-title">Підсумкова таблиця рішень — Київщина</div><div class="phase-sub">Стояча вода і затоки річок</div></div>
+</div>
+<div style="padding:10px 13px;overflow-x:auto">
+<table>
+<thead>
+<tr>
+<th style="width:18%">Умови</th>
+<th style="width:12%">Т°C</th>
+<th style="width:13%">Глибина</th>
+<th style="width:13%">Дно</th>
+<th style="width:22%">Оснастка</th>
+<th style="width:22%">Тісто</th>
+</tr>
+</thead>
+<tbody>
+<tr><td>Рання весна, штиль</td><td>4–10°C</td><td>1–3 м</td><td>Будь-яке</td><td class="bold">OMORIBETA</td><td>Глютен обидва</td></tr>
+<tr><td>Весна, активна риба</td><td>10–18°C</td><td>1–4 м</td><td>Щільне</td><td class="bold">OBETA</td><td>DANGO обидва</td></tr>
+<tr><td>Весна, мулисте дно</td><td>10–18°C</td><td>1–3 м</td><td>Мул</td><td class="bold">UEBARITONTON</td><td>DANGO / глютен</td></tr>
+<tr><td>Нерест (травень–червень)</td><td>14–20°C</td><td>0.5–1.5 м</td><td>Мілко, трава</td><td class="bold">CHOCHIN / KATTSUKE</td><td>Глютен</td></tr>
+<tr><td>Літо, ранок</td><td>18–24°C</td><td>1–2.5 м</td><td>Будь-яке</td><td class="bold">ASADANA / SEICHU</td><td>Порошок / DANGO</td></tr>
+<tr><td>Літо, спека, день</td><td>24°C+</td><td>0.5–1 м</td><td>Тінь, трава</td><td class="bold">KATTSUKE / CHOCHIN</td><td>Легкий порошок</td></tr>
+<tr><td>Осінь, активна</td><td>10–18°C</td><td>1.5–4 м</td><td>Щільне</td><td class="bold">OBETA / RYO-DANGO</td><td>DANGO важке</td></tr>
+<tr><td>Перед дощем, тиск падає</td><td>Будь-яка</td><td>Дно</td><td>Будь-яке</td><td class="bold">OMORIBETA / FUKACHU</td><td>Глютен</td></tr>
+<tr><td>Пасивна / перерибалений</td><td>Будь-яка</td><td>Будь-яка</td><td>Будь-яке</td><td class="bold">KATASURASHI / SETZURI</td><td>Глютен + HIGETORO</td></tr>
+</tbody>
+</table>
+</div>
+<div class="note">📌 Marukyu Global Beginners Guide 🇯🇵/🇬🇧 · Slideshare Herabuna Carpfishing Parte 2 🇬🇧 · allfishingbuy.com 🇬🇧 · tyhasegawa.com 🇬🇧 · tytkleva.net 🇬🇧</div>
+</div>
+
+</body>
+</html>
