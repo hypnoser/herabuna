@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Herabuna — вибір поплавця</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:system-ui,sans-serif;background:#f5f5f0;color:#1a1a1a;padding:1rem}
+h1{font-size:16px;font-weight:600;margin-bottom:.3rem}
+.intro{font-size:12px;color:#666;margin-bottom:1.2rem;line-height:1.5}
+
+/* HOW-TO BLOCK */
+.howto{border:0.5px solid #ddd;border-radius:10px;overflow:hidden;background:#fff;margin-bottom:1.2rem}
+.howto-header{padding:9px 13px;background:#f0f0ec;border-bottom:0.5px solid #ddd;font-size:13px;font-weight:600;color:#1a1a1a}
+.howto-grid{display:grid;grid-template-columns:1fr 1fr;gap:0}
+.howto-cell{padding:9px 13px;border-right:0.5px solid #eee;border-bottom:0.5px solid #eee}
+.howto-cell:nth-child(2n){border-right:none}
+.howto-cell:nth-last-child(-n+2){border-bottom:none}
+.hc-q{font-size:11px;font-weight:600;color:#555;text-transform:uppercase;letter-spacing:.04em;margin-bottom:4px}
+.hc-a{font-size:12px;color:#333;line-height:1.5}
+.hc-rule{margin-top:5px;padding:5px 8px;background:#f9f9f6;border-radius:5px;border:0.5px solid #e8e8e0}
+.hc-rule-t{font-size:11px;font-weight:600;color:#1a1a1a}
+.hc-rule-d{font-size:11px;color:#666;margin-top:1px}
+
+/* TABLE */
+.table-wrap{border:0.5px solid #ddd;border-radius:10px;overflow:hidden;background:#fff;margin-bottom:1.2rem}
+.table-header{padding:9px 13px;background:#f0f0ec;border-bottom:0.5px solid #ddd}
+.table-header-title{font-size:13px;font-weight:600;color:#1a1a1a}
+.table-header-sub{font-size:11px;color:#777;margin-top:1px}
+.tbl{width:100%;border-collapse:collapse;table-layout:fixed;font-size:11.5px}
+.tbl th{padding:7px 8px;text-align:left;background:#f8f8f5;font-weight:600;font-size:10.5px;color:#555;border-bottom:0.5px solid #ddd;line-height:1.3}
+.tbl td{padding:7px 8px;border-bottom:0.5px solid #eee;color:#333;vertical-align:top;line-height:1.45}
+.tbl tr:last-child td{border-bottom:none}
+.tbl tr:hover td{background:#fafaf8}
+.style-name{font-weight:600;font-size:12px;display:block;color:#1a1a1a}
+.style-sub{font-size:10px;color:#888;margin-top:1px;display:block}
+.badge{display:inline-block;font-size:10px;padding:2px 6px;border-radius:3px;font-weight:500;margin-top:3px}
+.b-bot{background:#fff3e0;color:#e65100}
+.b-mid{background:#e3f2fd;color:#1565c0}
+.b-sha{background:#e8f5e9;color:#2e7d32}
+.b-col{background:#fce4e4;color:#c62828}
+.b-spe{background:#f3e5f5;color:#6a1b9a}
+.val{font-weight:600;color:#1a1a1a;font-size:12px}
+.note-cell{font-size:10.5px;color:#666;line-height:1.4}
+.src-row td{font-size:10px;color:#aaa;padding:6px 8px;background:#f9f9f6;border-top:0.5px solid #e0e0d8;border-bottom:none}
+.sep-row td{padding:4px 8px;background:#f0f0ec;font-size:10px;font-weight:600;color:#555;letter-spacing:.05em;text-transform:uppercase;border-bottom:0.5px solid #ddd}
+
+/* PRINCIPLES */
+.principles{border:0.5px solid #ddd;border-radius:10px;overflow:hidden;background:#fff;margin-bottom:1.2rem}
+.p-header{padding:9px 13px;background:#f0f0ec;border-bottom:0.5px solid #ddd;font-size:13px;font-weight:600}
+.p-item{padding:8px 13px;border-bottom:0.5px solid #eee;display:grid;grid-template-columns:20px 1fr;gap:8px;align-items:start}
+.p-item:last-child{border-bottom:none}
+.p-num{font-size:11px;color:#aaa;padding-top:1px;text-align:right}
+.p-body{font-size:12px;color:#333;line-height:1.5}
+.p-q{font-weight:600;color:#1a1a1a}
+.src-note{padding:7px 13px;font-size:10px;color:#aaa;background:#f9f9f6;border-top:0.5px solid #e8e8e0}
+</style>
+</head>
+<body>
+<h1>Herabuna — Вибір поплавця: довжина, вантажопідйомність, стиль</h1>
+<p class="intro">Таблиця побудована на даних Marukyu Global Beginners Guide 🇯🇵/🇬🇧 та Slideshare Herabuna Carpfishing Parte 2 🇬🇧. Де параметри підтверджені — вказано джерело. Де ні — позначено ⚠️.</p>
+
+<!-- HOW-TO -->
+<div class="howto">
+<div class="howto-header">Як читати параметри поплавця Herabuna — 3 ключові виміри</div>
+<div class="howto-grid">
+<div class="howto-cell">
+<div class="hc-q">1. Довжина тіла (body, см)</div>
+<div class="hc-a">Це тільки тіло поплавця — без кіля і без антени. Саме тіло визначає вантажопідйомність і стабільність. Чим глибша вода і важче тісто — тим довше тіло потрібне.</div>
+<div class="hc-rule"><div class="hc-rule-t">Правило Marukyu (Table 1, підтверджено 🇯🇵/🇬🇧):</div><div class="hc-rule-d">2–3 м → тіло 9–10 см &nbsp;|&nbsp; 3–4 м → 10–11 см &nbsp;|&nbsp; 4–5 м → 11–12 см</div></div>
+</div>
+<div class="howto-cell">
+<div class="hc-q">2. Вантажопідйомність (г)</div>
+<div class="hc-a">Скільки свинцевої стрічки потрібно, щоб при порожніх гачках антена показувала 2–3 поділки над водою. Не плутай з вагою тіста — тісто підбирається окремо під поплавець.</div>
+<div class="hc-rule"><div class="hc-rule-t">Увага:</div><div class="hc-rule-d">Глютенове тісто легше DANGO — поплавець занурюється менше. Враховуй при підборі вантажу.</div></div>
+</div>
+<div class="howto-cell">
+<div class="hc-q">3. Матеріал тіла</div>
+<div class="hc-a">Традиційно — бальса або павлонія (кірі). Бальса легша, чутливіша. Більш чутливі поплавці — для холодної води і пасивної риби. Більш стабільні — для активної риби і вітру.</div>
+</div>
+<div class="howto-cell">
+<div class="hc-q">Літній виняток (підтверджено)</div>
+<div class="hc-a">Влітку, коли карась дуже активний і багато рухається, використовуй поплавець на один розмір більший за нормальний — щоб компенсувати зайві коливання антени і не підсікати помилково.</div>
+</div>
+</div>
+</div>
+
+<!-- MAIN TABLE -->
+<div class="table-wrap">
+<div class="table-header">
+<div class="table-header-title">Вибір поплавця за стилем ловлі — повна таблиця</div>
+<div class="table-header-sub">SOKOTSURI (донна) + CHUUTSURI (товща) + спеціальні стилі</div>
+</div>
+<table class="tbl">
+<thead>
+<tr>
+<th style="width:15%">Стиль / оснастка</th>
+<th style="width:11%">Тіло поплавця</th>
+<th style="width:13%">Вантажо&shy;підйомність</th>
+<th style="width:13%">Довжина вудилища</th>
+<th style="width:13%">Умови / глибина</th>
+<th style="width:35%">Коментар і джерело</th>
+</tr>
+</thead>
+<tbody>
+<!-- SOKOTSURI GROUP -->
+<tr class="sep-row"><td colspan="6">SOKOTSURI — донна ловля</td></tr>
+
+<tr>
+<td><span class="style-name">OMORIBETA<br>OBETA</span><span class="badge b-bot">дно</span></td>
+<td><span class="val">9–10 см</span></td>
+<td><span class="val">~1.0–1.5 г</span><br><span style="font-size:10px;color:#888">⚠️ точна вага не вказана в джерелах</span></td>
+<td><span class="val">до 4.5 м</span></td>
+<td>2–3 м глибина. Щільне дно. Весна / осінь</td>
+<td class="note-cell">Стандартна донна ловля. <strong>Table 1 (Marukyu 🇯🇵/🇬🇧):</strong> глибина 2–3 м → тіло 9–10 см. Вудилища до 4.5 м зручні у використанні.</td>
+</tr>
+<tr>
+<td><span class="style-name">UEBARITONTON</span><span class="badge b-bot">дно / дотик</span></td>
+<td><span class="val">9–10 см</span></td>
+<td><span class="val">~1.0–1.5 г</span><br><span style="font-size:10px;color:#888">⚠️</span></td>
+<td><span class="val">до 4.5 м</span></td>
+<td>2–3 м. Мулисте дно. Весна</td>
+<td class="note-cell">Той самий поплавець що для OBETA — але глибину підганяєш на 1 см за раз. Поплавець однаковий, змінюється тільки положення стопора.</td>
+</tr>
+<tr>
+<td><span class="style-name">KATASURASHI</span><span class="badge b-bot">дно асиметр.</span></td>
+<td><span class="val">9–10 см</span></td>
+<td><span class="val">~0.8–1.0 г</span><br><span style="font-size:10px;color:#888">⚠️ не підтверджено</span></td>
+<td><span class="val">2.4–3.6 м</span></td>
+<td>1.5–3 м. Перерибалений ставок. Літо</td>
+<td class="note-cell">Асиметрична оснастка. Поплавець той самий що для OBETA. Важливо: глютен легше DANGO — перевір, що ESA OCHI точка не зсунулась після зміни тіста.</td>
+</tr>
+
+<!-- DEEP BOTTOM -->
+<tr class="sep-row"><td colspan="6">SOKOTSURI — глибока донна ловля</td></tr>
+<tr>
+<td><span class="style-name">OBETA / RYO-DANGO</span><span class="badge b-bot">3–5 м глибина</span></td>
+<td><span class="val">10–11 см</span></td>
+<td><span class="val">~1.5–2.0 г</span><br><span style="font-size:10px;color:#888">⚠️ не підтверджено</span></td>
+<td><span class="val">3.6–4.5 м</span></td>
+<td>3–4 м. Відкриті затоки Дніпра, Конча-Заспа</td>
+<td class="note-cell"><strong>Table 1 (Marukyu 🇯🇵/🇬🇧):</strong> глибина 3–4 м → тіло 10–11 см. Глибша вода потребує довшого тіла для стабільності і чутливості до слабких поклювок.</td>
+</tr>
+<tr>
+<td><span class="style-name">FUKACHU / SOKOTSURI</span><span class="badge b-bot">4–5 м</span></td>
+<td><span class="val">11–12 см</span></td>
+<td><span class="val">~2.0–2.5 г</span><br><span style="font-size:10px;color:#888">⚠️ не підтверджено</span></td>
+<td><span class="val">4.5 м+</span></td>
+<td>4–5 м. Відкрита вода водосховища</td>
+<td class="note-cell"><strong>Table 1 (Marukyu 🇯🇵/🇬🇧):</strong> глибина 4–5 м → тіло 11–12 см. На такій глибині тісто довго тоне — потрібний важчий вантаж для швидкого занурення.</td>
+</tr>
+
+<!-- CHUUTSURI GROUP -->
+<tr class="sep-row"><td colspan="6">CHUUTSURI — ловля в товщі води</td></tr>
+<tr>
+<td><span class="style-name">SEICHU / ASADANA<br>RYO-DANGO</span><span class="badge b-mid">товща</span></td>
+<td><span class="val">9–10 см</span><br><span style="font-size:10px;color:#888">(+ 1 розмір влітку)</span></td>
+<td><span class="val">~1.0–1.5 г</span><br><span style="font-size:10px;color:#888">⚠️ не підтверджено</span></td>
+<td><span class="val">2.7–4.5 м</span></td>
+<td>1.5–3 м. Літо, рання активність</td>
+<td class="note-cell"><strong>Підтверджено (Marukyu PDF 🇯🇵/🇬🇧):</strong> "влітку, коли карась дуже активний, можна використовувати поплавець на один розмір більший — щоб компенсувати зайві коливання." Стандарт — 9–10 см; влітку → 10–11 см.</td>
+</tr>
+<tr>
+<td><span class="style-name">KATTSUKE</span><span class="badge b-sha">поверхня</span></td>
+<td><span class="val">9–10 см</span></td>
+<td><span class="val">~0.8–1.0 г</span><br><span style="font-size:10px;color:#888">⚠️</span></td>
+<td><span class="val">2.4–3.6 м</span></td>
+<td>0.5–1 м. Нерест. Спека. Рослини</td>
+<td class="note-cell">Мілководна ловля. Легке порошкове тісто — поплавець майже не занурюється від ваги тіста. Вантаж мінімальний. ESA OCHI точка — майже на рівні води.</td>
+</tr>
+
+<!-- SPECIAL STYLES -->
+<tr class="sep-row"><td colspan="6">Спеціальні стилі</td></tr>
+<tr>
+<td><span class="style-name">CHOCHIN</span><span class="badge b-spe">ліхтар</span></td>
+<td><span class="val">8–10 см</span><br>(рід 2.4–3.6 м)<br><span class="val">11–12 см</span><br>(рід 3.6–4.5 м)</td>
+<td><span class="val">~0.8–1.2 г</span><br><span style="font-size:10px;color:#888">⚠️ орієнтовно</span></td>
+<td><span class="val">2.4–4.5 м</span></td>
+<td>0.8–1.5 м. Очерет. Нависаючий берег</td>
+<td class="note-cell"><strong>Підтверджено (Slideshare Parte 2 🇬🇧):</strong> "рід 2.4–3.6 м → тіло поплавця 10–11 см; рід 3.6–4.5 м → 11–12 см. Чим довше вудилище — тим глибша ловля і тим важче тісто потрібне для швидшого занурення." Мінімальна відстань поплавця від кінчика = 1.5 × тіло поплавця.</td>
+</tr>
+<tr>
+<td><span class="style-name">SETZURI 1<br>(тепла вода)</span><span class="badge b-sha">мілко / порошок</span></td>
+<td><span class="val">8–10 см</span></td>
+<td><span class="val">#0.8 леска</span><br><span style="font-size:10px;color:#888">вага тіста — основний вантаж</span></td>
+<td><span class="val">2.4–3.3 м</span></td>
+<td>Тепла вода, мілководдя. Літо</td>
+<td class="note-cell"><strong>Підтверджено (Slideshare Parte 2 🇬🇧):</strong> "SETZURI 1 (тепла вода): рід 2.4–3.3 м, тіло поплавця 8–10 см, основна леска #0.8, повідець #0.4, верхній 8–15 см, нижній 13–20 см, гачки #4–5."</td>
+</tr>
+<tr>
+<td><span class="style-name">SETZURI 2<br>(холодна вода)</span><span class="badge b-col">зима / холод</span></td>
+<td><span class="val">6–7 см</span></td>
+<td><span class="val">~0.5–0.8 г</span><br><span style="font-size:10px;color:#888">⚠️ орієнтовно</span></td>
+<td><span class="val">2.4–4.5 м</span></td>
+<td>Холодна вода, пасивна риба, зима</td>
+<td class="note-cell"><strong>Підтверджено (Slideshare Parte 2 🇬🇧):</strong> "SETZURI 2 (холодні періоди): рід 2.4–3.3 м → тіло 6–7 см; рід 3.9–4.5 м → той самий 6–7 см." Коротше тіло = легший поплавець = більша чутливість до слабких поклювок пасивної риби.</td>
+</tr>
+
+<tr class="src-row"><td colspan="6">📌 Підтверджені дані: Marukyu Global Beginners Guide Table 1 🇯🇵/🇬🇧 · Slideshare Herabuna Carpfishing Parte 2 🇬🇧 &nbsp;|&nbsp; ⚠️ = параметр відсутній у підтверджених фрагментах, наведено як орієнтир</td></tr>
+</tbody>
+</table>
+</div>
+
+<!-- PRINCIPLES -->
+<div class="principles">
+<div class="p-header">5 практичних правил вибору поплавця — витяг з джерел</div>
+<div class="p-item">
+<div class="p-num">1</div>
+<div class="p-body"><span class="p-q">Глибина → довжина тіла:</span> Глибше 1 м на кожен наступний метр — +1 см до тіла поплавця. Таблиця Marukyu Table 1 — єдиний підтверджений числовий орієнтир. 📌 Marukyu PDF 🇯🇵/🇬🇧</div>
+</div>
+<div class="p-item">
+<div class="p-num">2</div>
+<div class="p-body"><span class="p-q">Активна риба влітку → більший поплавець:</span> Якщо карась надто активний і поплавець постійно тремтить — переходь на поплавець на 1 см довшим тілом. Більша вантажопідйомність гасить зайві рухи. 📌 Marukyu PDF 🇯🇵/🇬🇧</div>
+</div>
+<div class="p-item">
+<div class="p-num">3</div>
+<div class="p-body"><span class="p-q">Холодна вода і пасивна риба → коротше тіло:</span> SETZURI холодного сезону — тіло 6–7 см. Менша вантажопідйомність → поплавець занурюється від мінімального навантаження → реєструє ледь помітну поклювку. 📌 Slideshare Parte 2 🇬🇧</div>
+</div>
+<div class="p-item">
+<div class="p-num">4</div>
+<div class="p-body"><span class="p-q">CHOCHIN — довжина тіла залежить від вудилища, не від глибини:</span> Для CHOCHIN глибина ловлі = довжина вудилища. Тому поплавець підбирається під вудилище: 2.4–3.6 м → 10–11 см; 3.6–4.5 м → 11–12 см. 📌 Slideshare Parte 2 🇬🇧</div>
+</div>
+<div class="p-item">
+<div class="p-num">5</div>
+<div class="p-body"><span class="p-q">Глютенове тісто → менше занурення:</span> Якщо перейшов з DANGO на глютен — поплавець занурюється менше, оскільки глютен легший. Після зміни тіста завжди перевіряй ESA OCHI точку заново. 📌 Marukyu PDF 🇯🇵/🇬🇧</div>
+</div>
+<div class="src-note">📌 Джерела: Marukyu Global Beginners Guide 🇯🇵/🇬🇧 · Slideshare Herabuna Carpfishing Parte 2 🇬🇧 · allfishingbuy.com 🇬🇧</div>
+</div>
+
+</body>
+</html>
